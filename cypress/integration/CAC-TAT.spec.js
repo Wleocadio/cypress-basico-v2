@@ -25,7 +25,7 @@ describe('Central de Atendimento ao Cliente', function() {
         cy.get('.success').should('be.visible')
         //cy.contains('Mensagem enviada com sucesso.').should('be.visible')
     });
-    it('Email formato invalido', () => {
+    it('Email formato inválido', () => {
         cy.get('#firstName').type('Matheus').should('have.value','Matheus')
         cy.get('#lastName').type('Lamus').should('have.value', 'Lamus')
         cy.get('#email').should('be.visible').type('lamus.gmail.com').should('have.value', 'lamus.gmail.com')
@@ -75,7 +75,7 @@ describe('Central de Atendimento ao Cliente', function() {
         cy.contains('button', 'Enviar').click()
     });
 
-    it('Selecionar um protudo pelo seu testo (youtube)', () => {
+    it('Selecionar um protudo pelo seu texto (youtube)', () => {
         
         cy.get('#product')
           .select('YouTube')    
@@ -83,7 +83,7 @@ describe('Central de Atendimento ao Cliente', function() {
     });
 
 
-    it('seleciona um produto (Mentoria) por seu valor (value)', () => {
+    it('Seleciona um produto (Mentoria) por seu valor (value)', () => {
         
          
         cy.get('#product')  
@@ -92,21 +92,21 @@ describe('Central de Atendimento ao Cliente', function() {
     });
 
 
-    it('selecionar um produto pelo indice', () => {
+    it('Selecionar um produto pelo índice', () => {
         
         cy.get('#product') 
           .select(2)
           .should('have.value', 'cursos')
     });
 
-    it('marca o tipo de atendimento Feedback', () => {
+    it('Marca o tipo de atendimento Feedback', () => {
         cy.get('input[type="radio"][value="feedback"]')
           .check()
           .should('be.checked')
           .should('have.value','feedback')
     });
 
-    it('marcar o tipo de atendimento "primeiro"', () => {
+    it('Marcar o tipo de atendimento "primeiro"', () => {
         cy.get('input[type="radio"]')
           .first()
           .check()
@@ -114,7 +114,7 @@ describe('Central de Atendimento ao Cliente', function() {
           .should('have.value', 'ajuda')
     });
 
-    it('marcar cada tipo de atendimento', () => {
+    it('Marcar cada tipo de atendimento', () => {
         cy.get('input[type="radio"]')
           .should('have.length', 3)
           .each(function ($radio) {
@@ -126,7 +126,7 @@ describe('Central de Atendimento ao Cliente', function() {
 
     });
 
-    it('marca ambos checkboxes, depois desmarca o último', () => {
+    it('Marca ambos checkboxes, depois desmarca o último', () => {
         
         cy.get('input[type="checkbox"]')
           .check()
@@ -137,7 +137,7 @@ describe('Central de Atendimento ao Cliente', function() {
     
     });
 
-    it('exibe mensagem de erro telefone obrigatório', () => {
+    it('Exibe mensagem de erro telefone obrigatório', () => {
         cy.fillMandatoryFieldsAndSubmit()
         cy.get('input[type="radio"]')
           .check('feedback')
@@ -160,7 +160,7 @@ describe('Central de Atendimento ao Cliente', function() {
           .should('be.visible')
     });
 
-    it('seleciona um arquivo da pasta fixture', () => {
+    it('Seleciona um arquivo da pasta fixture', () => {
 
         cy.get('input[type="file"]')
             .should('not.have.value')
@@ -171,7 +171,7 @@ describe('Central de Atendimento ao Cliente', function() {
            
     });
 
-    it('seleciona um arquivo simulando drag-and-drop', () => {
+    it('Seleciona um arquivo simulando drag-and-drop', () => {
         
         cy.get('input[type="file"]')
            .should('not.have.value')
@@ -183,7 +183,7 @@ describe('Central de Atendimento ao Cliente', function() {
 
     });
 
-    it('seleciona dois arquivos da pasta fixture', () => {
+    it('Seleciona dois arquivos da pasta fixture', () => {
         
         cy.get('input[type="file"]')
             .should('not.have.value')
@@ -195,7 +195,7 @@ describe('Central de Atendimento ao Cliente', function() {
             })
     });
 
-    it('selecionar um arquivo utilizando uma fixture para a qual foi dada um alias', () => {
+    it('Selecionar um arquivo utilizando uma fixture para a qual foi dada um aliás', () => {
         
         cy.fixture('Arquivo1.txt', {encoding: null}).as('arquivo')
         cy.get('input[type="file"]')
@@ -207,14 +207,14 @@ describe('Central de Atendimento ao Cliente', function() {
         
     });
 
-    it('verifica que a política de privacidade abre em outra aba sem a necessidade de um click', () => {
+    it('Verifica que a política de privacidade abre em outra aba sem a necessidade de um click', () => {
         
         cy.get('#privacy a')
             .should('have.attr', 'target','_blank')
         
     });
 
-    it('removendo p target e clicando no link', () => {
+    it('Removendo o target e clicando no link', () => {
         
         cy.get('#privacy a')
             .invoke('removeAttr','target')
@@ -222,7 +222,7 @@ describe('Central de Atendimento ao Cliente', function() {
         
     });
 
-    it('testando a página de privacidade', () => {
+    it('Testando a página de privacidade', () => {
         
         cy.get('#privacy a')
             .invoke('removeAttr', 'target')
