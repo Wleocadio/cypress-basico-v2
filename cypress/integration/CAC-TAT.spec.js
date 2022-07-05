@@ -80,7 +80,7 @@ describe('Central de Atendimento ao Cliente TAT', function() {
     it('Exibe mensagem de erro quando o telefone se torna obrigatório, mas não é preenchido antes do envio do formulário', () => {
        
         cy.get('#phone-checkbox')
-            .chec()
+            .check()
             .should('be.checked')
 
         cy.get('button[type="submit"]')
