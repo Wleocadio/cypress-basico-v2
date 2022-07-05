@@ -1,25 +1,31 @@
 
 Cypress.Commands.add('fillMandatoryFieldsAndSubmit', function(){ 
-    const longText = 'Testando o campo ajuda, vamos utilizar o Objeto delay para deixar a digitação mais lenta.'
+    const longText = 'Testando o campo ajuda, vamos utilizar o objeto delay para deixar a digitação mais rápida.'
        
-    cy.get('#firstName').type("Marcos").should('have.value', 'Marcos')
-    cy.get('#lastName').should('be.visible').type('Suave').should('have.value', 'Suave')
-    cy.get('#email').type('suave@gmail.com').should('have.value', 'suave@gmail.com')
-    cy.get('#open-text-area').should('be.visible').type(longText,  {delay: 10 }).should('have.value', longText)
+    cy.get('#firstName')
+      .should('be.visible')
+      .type("Marcos")
+      .should('have.value', 'Marcos')
+
+    cy.get('#lastName')
+      .should('be.visible')
+      .type('Suave')
+      .should('have.value', 'Suave')
+
+    cy.get('#email')
+      .should('be.visible')
+      .type('msuave@gmail.com')
+      .should('have.value', 'msuave@gmail.com')
+
+    cy.get('#open-text-area')
+      .should('be.visible')
+      .type(longText,  {delay: 0 })
+      .should('have.value', longText)
     //cy.get('button[type="submit"]').click()
 
 
 })
 
-Cypress.Commands.add('login', (username, password) => {
-    cy.session([username, password], () => {
-      cy.visit('/login')
-      cy.get('[data-test=username]').type(username)
-      cy.get('[data-test=password]').type(password)
-      cy.get('#login').click()
-      cy.url().should('contain', '/login-successful')
-    })
-  })
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
 //
