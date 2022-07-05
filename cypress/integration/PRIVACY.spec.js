@@ -2,7 +2,7 @@ it('Testando a página de privacidade', () => {
         
     cy.visit('./src/privacy.html')
     cy.title()
-        .should('be.equal','Central de Atendimento ao Cliente TAT - Política de privacidade')
+        .shoul('be.equal','Central de Atendimento ao Cliente TAT - Política de privacidade')
     cy.get('#title')
         .should('contain','CAC TAT - Política de privacidade')
     
